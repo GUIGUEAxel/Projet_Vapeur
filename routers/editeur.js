@@ -94,7 +94,7 @@ router.post('/:id/edit', async (req, res) => {
 
 // Permet de supprimer un éditeur
 router.post('/:id/delete', async (req, res) => {
-  const editeurId = parseInt(req.params.id);
+  const editeurId = parseInt(req.params.id); // récupére l'id depuis L'url 
   try {
     await prisma.editeur.delete({
       where: { id: editeurId },

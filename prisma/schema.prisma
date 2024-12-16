@@ -19,7 +19,7 @@ model Jeu {
   description String
   dateSortie  DateTime
   genreId     Int
-  genre       Genre    @relation(fields: [genreId], references: [id])
+  genre       Genre    @relation(fields: [genreId], references: [id])// Chaque jeu est lié à un genre, genreId c'est clé étrangère qui point vers id dans la table genre
   editeurId   Int
   editeur     Editeur  @relation(fields: [editeurId], references: [id])
   misEnAvant  Boolean  @default(false) 

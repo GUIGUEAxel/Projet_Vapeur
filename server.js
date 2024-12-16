@@ -26,10 +26,10 @@ app.set("view engine", "hbs"); // Définit Handlebars comme moteur de template
 app.set("views", path.join(__dirname, "views")); // Définit le dossier des vues
 hbs.registerPartials(path.join(__dirname, "views", "partials")); // Définit le dossier des partials
 
-// Middleware pour parser les données du formulaire
+// Décortique les données du formulaire
 app.use(express.urlencoded({ extended: true }));
 
-// Middleware pour servir des fichiers statiques
+// Sert des fichiers statiques
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Importation des routeurs
@@ -47,8 +47,8 @@ app.get('/', async (req, res) => {
   try {
     // Récupération des jeux mis en avant
     const jeuxMisEnAvant = await prisma.jeu.findMany({
-      where: { misEnAvant: true }, // Filtre pour récupérer seulement les jeux mis en avant
-      orderBy: { titre: 'asc' }    // Trie par ordre alphabétique
+      where: { misEnAvant: true }, 
+      orderBy: { titre: 'asc' }    
     });
 
     // Affichage de la vue "index.hbs" avec les jeux récupérés

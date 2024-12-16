@@ -1,7 +1,7 @@
 <h1>Liste des Jeux</h1>
 
 <table>
-  <thead>
+  <head>
     <tr>
       <th>Titre</th>
       <th>Description</th>
@@ -11,8 +11,8 @@
       <th>Mis en avant</th>
       <th>Actions</th>
     </tr>
-  </thead>
-  <tbody>
+  </head>
+  <body>
     {{#each jeux}}
     <tr>
       <td>{{this.titre}}</td>
@@ -36,7 +36,7 @@
       </td>
     </tr>
     {{/each}}
-  </tbody>
+  </body>
 </table>
 
 <a href="/jeux/new" class="btn btn-success">Créer un nouveau jeu</a>

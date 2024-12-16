@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Permet de créer un nouveau jeu dans la base de données à partir des données envoyées via un formulaire.
+// Permet de créer un nouveau jeu 
 router.post("/", async (req, res) => {
   const { titre, description, dateSortie, genreId, editeurId, misEnAvant } = req.body;
 
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
         dateSortie: new Date(dateSortie),
         genreId: parseInt(genreId),
         editeurId: parseInt(editeurId),
-        misEnAvant: misEnAvant === "on", // Checkbox management
+        misEnAvant: misEnAvant === "on", // Convertit la valeur en booléen
       },
     });
     res.redirect("/jeux");
@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Affiche un formulaire qui permet de créer un nouveau jeu.
+// Permet d'afficher un formulaire qui permet de créer un nouveau jeu.
 router.get("/new", async (req, res) => {
   try {
     const genres = await prisma.genre.findMany();
@@ -50,7 +50,7 @@ router.get("/new", async (req, res) => {
   }
 });
 
-// Afficher le détail d'un jeu
+// Permet d'afficher le détail d'un jeu
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
 
@@ -105,7 +105,7 @@ router.post("/:id/edit", async (req, res) => {
         dateSortie: new Date(dateSortie),
         genreId: parseInt(genreId),
         editeurId: parseInt(editeurId),
-        misEnAvant: misEnAvant === "on", // Checkbox management
+        misEnAvant: misEnAvant === "on", // Convertit la valeur en booléen
       },
     });
 

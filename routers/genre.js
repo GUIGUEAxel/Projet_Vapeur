@@ -34,6 +34,7 @@ router.get('/:id/jeux', async (req, res) => {
   }
 });
 
+//Fonctionnalité ajouté en trop
 /*// Permet d'afficher le formulaire de création de genre
 router.get('/new', (req, res) => {
   res.render('genres/new'); 
