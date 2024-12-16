@@ -13,8 +13,11 @@ hbs.registerHelper("ifEquals", function (arg1, arg2, options) {
 });
 
 hbs.registerHelper('formatDate', function(date) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
-  return new Date(date).toLocaleDateString('fr-FR', options);
+  const d = new Date(date);
+  const year = d.getFullYear();
+  const month = (d.getMonth() + 1).toString().padStart(2, '0'); // Mois de 01 à 12
+  const day = d.getDate().toString().padStart(2, '0'); // Jour de 01 à 31
+  return `${year}-${month}-${day}`; // Format final : YYYY-MM-DD
 });
 
 hbs.registerHelper('eq', function (a, b) {
