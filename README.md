@@ -39,10 +39,10 @@ Voir les jeux associés à un éditeur spécifique.
 3. **Créer un fichier .env à la racine du projet pour configurer les variables d'environnement :
 
    ```env
-   DATABASE_URL="file:./prisma/database.db"
+   DATABASE_URL="file:./database.db"
    ```
 
-4. **Configurer Prisma :** :
+4. **Configurer Prisma si necessaire (Normalement pas besoin):** :
 
    - Initialiser la base de données et appliquer les migrations :
      
