@@ -1,123 +1,124 @@
 # Vapeur
+Vapeur est une application web dynamique pour gérer une collection de jeux vidéo. Ce projet utilise Express.js pour le backend, Prisma pour la gestion de base de données avec SQLite, et Handlebars comme moteur de templates.
 
-Vapeur is a dynamic web application for managing a video game collection. This project uses Express.js for the backend, Prisma for database management with SQLite, and Handlebars as the templating engine.
+## Fonctionnalités Principales
+L'application Vapeur permet de :
 
-## Main Features
+Gestion des Jeux :
 
-The Vapeur application allows:
+Créer, modifier et supprimer des jeux.
+Afficher les détails d'un jeu, incluant le titre, la description, la date de sortie, le genre et l'éditeur.
+Mettre en avant certains jeux sur la page d'accueil.
+Gestion des Genres de Jeux :
 
-1. **Game Management**:
-   - Create, edit, and delete games.
-   - Display game details, including title, description, release date, genre, and publisher.
-   - Highlight certain games on the homepage.
+Afficher une liste de genres.
+Voir les jeux associés à un genre spécifique.
+Gestion des Éditeurs de Jeux :
 
-2. **Game Genre Management**:
-   - View a list of genres.
-   - See games associated with a specific genre.
-
-3. **Game Publisher Management**:
-   - Create, edit, and delete publishers.
-   - View a list of publishers.
-   - See games associated with a specific publisher.
-
-## Prerequisites
-
-Before starting, ensure the following are pre-installed:
-
+Créer, modifier et supprimer des éditeurs.
+Afficher une liste des éditeurs.
+Voir les jeux associés à un éditeur spécifique.
+## Prérequis
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 
 ## Installation
 
-1. **Clone the Git repository**:
+1. **Cloner le dépôt Git :**:
 
    ```bash
    git clone <REPO_URL>
-   cd Vapeur_Detournay_Bordet
-
    ```
 
-2. **Install dependencies**:
+2. **Installer les dépendances :**:
 
    ```bash
    npm install
    ```
 
-3. **Create a `.env` file** at the root of the project to configure environment variables:
+3. **Créer un fichier .env à la racine du projet pour configurer les variables d'environnement :
 
    ```env
    DATABASE_URL="file:./prisma/database.db"
    ```
 
-4. **Configure Prisma** :
+4. **Configurer Prisma :** :
 
-   - Initialize the database and apply migrations:
+   - Initialiser la base de données et appliquer les migrations :
      
      ```bash
      npx prisma migrate dev --name init
      ```
 
-   - Seed the database with default genres and publishers:
+   - Peupler la base de données avec des genres et des éditeurs par défaut :
      
      ```bash
      npm run seed
      ```
 
-5. **Start the server** :
+5. **Démarrer le serveur :** :
 
    ```bash
    npm start
    ```
 
-6. **Access the application** in your browser:
+6. **Accéder à l'application depuis votre navigateur :** in your browser:
 
    ```
-   http://localhost:3000
+   http://localhost:3008
    ```
 
-## Project Structure
+## Structure du Projet
 
 ```
-Vapeur_Detournay_Bordet/
-├── prisma/                 # Prisma files
-│   ├── schema.prisma          # Database schema definition
-│   └── seed.js                # File to initialize default data
-├── public/                 # Static files
-│   └── css/
-│       └── global.css            # CSS file
-├── routes/                 # Route definitions
-│   ├── editorRoutes.js        # Routes for publishers
-│   ├── gameRoutes.js          # Routes for games
-│   └── genreRoutes.js         # Routes for genres
-├── views/                  # Handlebars templates
-│   ├── editors/               # Templates for publishers
-│   │   ├── edit.hbs              # Edit form
-│   │   ├── games.hbs             # List of a publisher's games
-│   │   ├── index.hbs             # List of publishers
-│   │   └── new.hbs               # Creation form
-│   ├── games/                 # Templates for games
-│   │   ├── details.hbs           # Game details
-│   │   ├── edit.hbs              # Edit form
-│   │   ├── index.hbs             # List of games
-│   │   └── new.hbs               # Creation form
-│   ├── genres/                # Templates for genres
-│   │   ├── games.hbs             # List of a genre's games
-│   │   └── index.hbs             # List of genres
-│   └── partials/              # Partial templates
-│       ├── header.hbs            
-│       ├── index.hbs             
-│       └── layout.hbs            # Main layout
-├── .gitignore              # Files to ignore in Git
-├── package-lock.json       
-├── package.json            # Dependencies and npm scripts
-├── README.md               # Project documentation
-└── server.js               # Express server
+Projet_Vapeur/
+├── node_modules/            # Répertoire des dépendances Node.js
+├── prisma/                  # Répertoire pour la base de données Prisma
+│   ├── migrations/             # Fichiers des migrations Prisma
+│   ├── prisma/                 # Sous-répertoire non détaillé
+│   ├── database.db             # Fichier de la base de données SQLite
+│   ├── schema.prisma           # Schéma de la base de données Prisma
+│   └── seed.js                 # Script pour insérer les données initiales
+├── routers/                # Répertoire contenant les fichiers de routes
+│   ├── editeur.js             # Routes pour les éditeurs
+│   ├── genre.js               # Routes pour les genres
+│   └── jeux.js                # Routes pour les jeux
+├── views/                  # Répertoire des templates Handlebars
+│   ├── editeurs/              # Templates pour les éditeurs
+│   │   ├── edit.hbs              # Formulaire de modification
+│   │   ├── index.hbs             # Liste des éditeurs
+│   │   ├── jeux.hbs              # Liste des jeux d'un éditeur
+│   │   └── new.hbs               # Formulaire de création d'éditeur
+│   ├── genres/                # Templates pour les genres
+│   │   ├── edit.hbs              # Formulaire de modification
+│   │   ├── index.hbs             # Liste des genres
+│   │   ├── jeux.hbs              # Liste des jeux d'un genre
+│   │   └── new.hbs               # Formulaire de création de genre
+│   ├── jeux/                  # Templates pour les jeux
+│   │   ├── details.hbs           # Détails d'un jeu
+│   │   ├── edit.hbs              # Formulaire de modification
+│   │   ├── index.hbs             # Liste des jeux
+│   │   ├── new.hbs               # Formulaire de création de jeu
+│   │   └── show.hbs              # Affichage d'un jeu spécifique
+│   ├── layouts/               # Layouts généraux
+│   │   └── main.hbs              # Layout principal
+│   └── partials/              # Templates partiels
+│       ├── footer.hbs            # Pied de page
+│       ├── header.hbs            # En-tête
+│       └── index.hbs             # Index partiel
+│   └── index.hbs              # Page principale
+├── .env                     # Fichier de configuration des variables d'environnement
+├── .gitattributes           # Configuration Git
+├── .gitignore               # Liste des fichiers ignorés par Git
+├── package-lock.json        # Fichier de verrouillage des dépendances
+├── package.json             # Liste des dépendances et scripts du projet
+├── README.md                # Documentation du projet
+└── server.js                # Point d'entrée du serveur Express.js
+
 
 ```
 
 
 ---
 
-Created by Corentin Detournay and Enzo Bordet.
-
-Thank you for using Vapeur!
+Créer par Guigue Axel et Virgile Marion
