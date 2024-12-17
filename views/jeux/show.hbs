@@ -1,5 +1,30 @@
-<h1>{{jeu.titre}}</h1>
-<p><strong>Genre :</strong> {{jeu.genre.nom}}</p>
-<p><strong>Description :</strong> {{jeu.description}}</p>
-<a href="/jeux" class="btn">Retour à la liste des jeux</a>
-<a href="/jeux/{{jeu.id}}/edit">Modifier</a>
+<h1>Détails du Jeu</h1>
+
+<table>
+  <tr>
+    <th>Titre :</th>
+    <td>{{jeu.titre}}</td>
+  </tr>
+  <tr>
+    <th>Description :</th>
+    <td>{{jeu.description}}</td>
+  </tr>
+  <tr>
+    <th>Date de sortie :</th>
+    <td>{{formatDate jeu.dateSortie}}</td>
+  </tr>
+  <tr>
+    <th>Genre :</th>
+    <td>{{jeu.genre.nom}}</td>
+  </tr>
+  <tr>
+    <th>Éditeur :</th>
+    <td>{{jeu.editeur.nom}}</td>
+  </tr>
+  <tr>
+    <th>Mis en avant :</th>
+    <td>{{#if jeu.misEnAvant}}✅{{else}}❌{{/if}}</td>
+  </tr>
+</table>
+
+<a href="/jeux" class="btn btn-primary">Retourner à la liste</a>

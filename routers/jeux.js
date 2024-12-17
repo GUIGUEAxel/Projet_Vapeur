@@ -116,6 +116,28 @@ router.post("/:id/edit", async (req, res) => {
   }
 });
 
+// Affiche le détail d'un jeu avec "/jeux/:id/show"
+router.get("/:id/show", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const jeu = await prisma.jeu.findUnique({
+      where: { id: parseInt(id) },
+      include: { genre: true, editeur: true },
+    });
+
+    if (!jeu) {
+      return res.status(404).send("Jeu introuvable.");
+    }
+
+    res.render("jeux/show", { jeu }); // Affiche la vue "show" avec les détails
+  } catch (error) {
+    console.error("Erreur lors de la récupération du jeu :", error);
+    res.status(500).send("Erreur lors de la récupération du jeu.");
+  }
+});
+
+
 // Suppression d'un jeu de la base de données
 router.post("/:id/delete", async (req, res) => {
   const { id } = req.params;

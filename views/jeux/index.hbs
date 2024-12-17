@@ -4,23 +4,25 @@
   <head>
     <tr>
       <th>Titre</th>
-      <th>Description</th>
       <th>Date de sortie</th>
+      {{!-- <th>Description</th>
       <th>Genre</th>
       <th>Éditeur</th>
       <th>Mis en avant</th>
-      <th>Actions</th>
+      <th>Actions</th> --}}
     </tr>
   </head>
   <body>
     {{#each jeux}}
     <tr>
-      <td>{{this.titre}}</td>
-      <td>{{this.description}}</td>
+      <td><a href="/jeux/{{id}}/show">{{this.titre}}</a></td>
       <td>{{formatDate this.dateSortie}}</td>
+      <td>{{#if this.misEnAvant}}✅{{else}}❌{{/if}}</td>
+      {{!-- <td>{{this.titre}}</td>
+      <td>{{this.description}}</td>
       <td>{{this.genre.nom}}</td>
       <td>{{this.editeur.nom}}</td>
-      <td>{{#if this.misEnAvant}}✅{{else}}❌{{/if}}</td>
+      <td>{{#if this.misEnAvant}}✅{{else}}❌{{/if}}</td> --}}
       <td>
         <!-- Bouton Modifier -->
         <a href="/jeux/{{this.id}}/edit" class="btn btn-primary">Modifier</a>

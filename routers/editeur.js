@@ -92,14 +92,21 @@ router.post('/:id/edit', async (req, res) => {
   }
 });
 
-// Permet de supprimer un éditeur
+// Permet de supprimer un éditeur et ses jeux associés
 router.post('/:id/delete', async (req, res) => {
-  const editeurId = parseInt(req.params.id); // récupére l'id depuis L'url 
+  const editeurId = parseInt(req.params.id); // récupère l'ID depuis l'URL
   try {
+    // Étape 1 : Supprimer les jeux associés
+    await prisma.jeu.deleteMany({
+      where: { editeurId: editeurId }, // Supprime les jeux liés à l'éditeur
+    });
+
+    // Étape 2 : Supprimer l'éditeur
     await prisma.editeur.delete({
       where: { id: editeurId },
     });
-    res.redirect('/editeurs'); 
+
+    res.redirect('/editeurs'); // Redirection après suppression
   } catch (error) {
     console.error('Erreur lors de la suppression de l\'éditeur :', error);
     res.status(500).send('Erreur du serveur.');
