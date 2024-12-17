@@ -1,10 +1,10 @@
 <header>
     <nav>
         <ul>
-            <li><a href="/">Accueil</a></li>
-            <li><a href="/jeux">Jeux</a></li>
-            <li><a href="/genres">Genres</a></li>
-            <li><a href="/editeurs">Éditeurs</a></li>
+            <li><a href="/" class="{{#if isHome}}active{{/if}}">Accueil</a></li>
+            <li><a href="/jeux" class="{{#if isJeux}}active{{/if}}">Jeux</a></li>
+            <li><a href="/genres" class="{{#if isGenres}}active{{/if}}">Genres</a></li>
+            <li><a href="/editeurs" class="{{#if isEditeurs}}active{{/if}}">Éditeurs</a></li>
         </ul>
     </nav>
 </header>

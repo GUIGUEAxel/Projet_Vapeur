@@ -1,13 +1,22 @@
-<h1>Jeux de l'editeur : {{editeur.nom}}</h1>
+<h1 class="title">Jeux de l'éditeur : {{editeur.nom}}</h1>
 
-<ul>
+<table>
+  <tr>
+    <th>Titre</th>
+    <th>Description</th>
+  </tr>
   {{#each editeur.jeux}}
-    <li>
-      <strong>{{titre}}</strong> - {{description}}
-    </li>
+    <tr>
+      <td>{{titre}}</td>
+      <td>{{description}}</td>
+    </tr>
   {{else}}
-    <li>Aucun jeu trouvé pour cet editeur.</li>
+    <tr>
+      <td colspan="2">Aucun jeu trouvé pour cet éditeur.</td>
+    </tr>
   {{/each}}
-</ul>
+</table>
 
-<a href="/editeurs">Retour à la liste des editeurs</a>
+<div class="button-container">
+  <a href="/editeurs" class="btn btn-secondary">Retour à la liste des éditeurs</a>
+</div>

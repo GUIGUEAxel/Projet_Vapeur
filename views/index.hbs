@@ -1,18 +1,20 @@
-<h1>Jeux mis en avant</h1>
-{{#if jeuxMisEnAvant.length}}
-<ul>
-  {{#each jeuxMisEnAvant}}
-  <li>
-    <h2>{{this.titre}}</h2>
-    <p>{{this.description}}</p>
-    <p><strong>Date de sortie :</strong> {{formatDate this.dateSortie}}</p>
-  </li>
-  {{/each}}
-</ul>
-{{else}}
-<p>Aucun jeu mis en avant pour le moment.</p>
-{{/if}}
+<h1 class="title">Jeux mis en avant</h1>
 
-<a href="/jeux">Voir tous les jeux</a>
-<a href="/genres">Voir tous les genres</a>
-<a href="/editeurs">Voir tous les editeurs</a>
+{{#if jeuxMisEnAvant.length}}
+  <table>
+    <tr>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Date de sortie</th>
+    </tr>
+    {{#each jeuxMisEnAvant}}
+      <tr>
+        <td>{{this.titre}}</td>
+        <td>{{this.description}}</td>
+        <td>{{formatDate this.dateSortie}}</td>
+      </tr>
+    {{/each}}
+  </table>
+{{else}}
+  <p style="text-align: center;">Aucun jeu mis en avant pour le moment.</p>
+{{/if}}

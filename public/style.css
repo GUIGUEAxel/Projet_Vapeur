@@ -1,7 +1,270 @@
-body {
-  background-color: lightblue; /* Test : Change la couleur du fond */
+/* VARIABLES : Couleurs principales */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+  --light-color: #f9f9f9;
+  --background-color: #f4f4f9;
+  --white: #ffffff;
+  --black: #333;
+  --gray-border: #ddd;
+  --hover-opacity: 0.85;
 }
 
-h1 {
-  color: red; /* Test : Change la couleur des titres */
+/* RESET de la page */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--black);
+}
+
+/* HEADER */
+header {
+  background-color: var(--primary-color);
+  padding: 20px;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+  text-decoration: underline;
+  opacity: var(--hover-opacity);
+}
+
+/* TITRES */
+h1,
+.title {
+  text-align: center;
+  color: var(--black);
+  font-size: 2.5em;
+  margin: 20px 0;
+}
+
+/* TABLE */
+table {
+  width: 80%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+}
+
+table th,
+table td {
+  padding: 12px;
+  border: 1px solid var(--gray-border);
+  text-align: left;
+}
+
+table th {
+  background-color: var(--primary-color);
+  color: var(--white);
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background-color: var(--light-color);
+}
+
+table a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+table a:hover {
+  text-decoration: underline;
+}
+
+/* BOUTONS GÉNÉRIQUES */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: var(--white);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.3s;
+}
+
+.btn:hover {
+  opacity: var(--hover-opacity);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+}
+
+.btn-warning {
+  background-color: var(--warning-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+}
+
+/* FORMULAIRE */
+.form-container {
+  width: 50%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* LISTES */
+.list-container,
+.genre-container,
+.editeur-container {
+  width: 80%;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.genre-list,
+.editeur-list {
+  list-style: none;
+}
+
+.genre-item,
+.editeur-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid var(--gray-border);
+  border-radius: 5px;
+  background-color: var(--light-color);
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.genre-item:hover,
+.editeur-item:hover {
+  background-color: #f0f8ff;
+}
+
+.genre-link {
+  color: var(--primary-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.genre-link:hover {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+/* FOOTER */
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  margin: 0;
+  font-size: 16px;
+}
+
+/* CLASSES UTILITAIRES */
+.text-center {
+  text-align: center;
+}
+
+.no-game {
+  text-align: center;
+  color: var(--secondary-color);
+  font-size: 1.1em;
+  padding: 10px;
+}
+
+.active-page {
+  background-color: #f0f8ff;
+}
+
+/* Utilisation de Flexbox pour centrer le bouton */
+.button-container {
+  display: flex;
+  justify-content: center;  /* Centrer horizontalement */
+  align-items: center;      /* Centrer verticalement si nécessaire */
+  margin-top: 20px;         /* Espacement au-dessus du bouton */
+}
+
+a.btn {
+  text-align: center;
+  padding: 10px 20px;       /* Ajouter un peu de padding pour le style */
 }

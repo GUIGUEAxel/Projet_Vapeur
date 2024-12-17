@@ -1,9 +1,21 @@
-<h1>Modifier l'editeur : {{editeur.name}}</h1>
+<h1 class="title">Modifier l'éditeur : {{editeur.nom}}</h1>
 
-<form action="/editeurs/{{editeur.id}}/edit" method="POST">
-  <label for="nom">Nom de l'editeur :</label>
-  <input type="text" name="nom" value="{{editeur.nom}}" required />
-  <button type="submit">Modifier</button>
-</form>
-
-<a href="/editeurs">Retour à la liste des editeurs</a>
+<div class="form-container">
+  <form action="/editeurs/{{editeur.id}}/edit" method="POST" class="edit-form">
+    <div class="form-group">
+      <label for="nom" class="form-label">Nom de l'éditeur :</label>
+      <input 
+        type="text" 
+        name="nom" 
+        id="nom" 
+        value="{{editeur.nom}}" 
+        required 
+        class="form-input"
+      />
+    </div>
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Modifier</button>
+      <a href="/editeurs" class="btn btn-secondary">Retour à la liste des éditeurs</a>
+    </div>
+  </form>
+</div>

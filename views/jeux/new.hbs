@@ -1,32 +1,52 @@
-<h1>Créer un nouveau jeu</h1>
-<form action="/jeux" method="POST">
-  <label for="titre">Titre :</label>
-  <input type="text" name="titre" id="titre" required />
+<h1 class="title">Créer un nouveau jeu</h1>
+<form action="/jeux" method="POST" class="form-container">
+  <!-- Titre -->
+  <div class="form-group">
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" id="titre" required />
+  </div>
 
-  <label for="description">Description :</label>
-  <textarea name="description" id="description" required></textarea>
+  <!-- Description -->
+  <div class="form-group">
+    <label for="description">Description :</label>
+    <textarea name="description" id="description" rows="5" required></textarea>
+  </div>
 
-  <label for="dateSortie">Date de sortie :</label>
-  <input type="date" name="dateSortie" id="dateSortie" required />
+  <!-- Date de sortie -->
+  <div class="form-group">
+    <label for="dateSortie">Date de sortie :</label>
+    <input type="date" name="dateSortie" id="dateSortie" required />
+  </div>
 
-  <label for="genreId">Genre :</label>
-  <select name="genreId" id="genreId">
-    {{#each genres}}
-    <option value="{{this.id}}">{{this.nom}}</option>
-    {{/each}}
-  </select>
+  <!-- Genre -->
+  <div class="form-group">
+    <label for="genreId">Genre :</label>
+    <select name="genreId" id="genreId">
+      {{#each genres}}
+      <option value="{{this.id}}">{{this.nom}}</option>
+      {{/each}}
+    </select>
+  </div>
 
-  <label for="editeurId">Éditeur :</label>
-  <select name="editeurId" id="editeurId">
-    {{#each editeurs}}
-    <option value="{{this.id}}">{{this.nom}}</option>
-    {{/each}}
-  </select>
+  <!-- Éditeur -->
+  <div class="form-group">
+    <label for="editeurId">Éditeur :</label>
+    <select name="editeurId" id="editeurId">
+      {{#each editeurs}}
+      <option value="{{this.id}}">{{this.nom}}</option>
+      {{/each}}
+    </select>
+  </div>
 
-  <label for="misEnAvant">Mis en avant :</label>
-  <input type="checkbox" name="misEnAvant" id="misEnAvant" />
+  <!-- Mis en avant -->
+  <div class="form-group checkbox-group">
+    <label for="misEnAvant">Mis en avant :</label>
+    <input type="checkbox" name="misEnAvant" id="misEnAvant" />
+  </div>
 
-  <button type="submit">Créer</button>
+  <!-- Bouton Créer -->
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Créer</button>
+    <a href="/jeux" class="btn btn-primary">Retourner à la liste des jeux</a>
+  </div>
 </form>
-
-<a href="/jeux" class="btn">Retourner à la liste de jeux</a>
