@@ -1,9 +1,21 @@
-<h1>Créer un nouvel editeur</h1>
+<h1>Créer un nouvel éditeur</h1>
 
 <form action="/editeurs/new" method="POST">
-  <label for="nom">Nom de l'editeur :</label>
-  <input type="text" name="nom" required />
-  <button type="submit">Créer</button>
+  <table>
+    <tr>
+      <th><label for="nom">Nom de l'éditeur :</label></th>
+      <td><input type="text" name="nom" required /></td>
+    </tr>
+    <tr>
+      <td colspan="2" style="text-align: center;">
+        <button type="submit" class="btn btn-success">Créer</button>
+      </td>
+    </tr>
+  </table>
 </form>
 
-<a href="/editeurs">Retour à la liste des editeurs</a>
+<div class="button-container">
+  <a href="/editeurs" class="btn btn-secondary">Retour à la liste des éditeurs</a>
+</div>
+
+

@@ -1,14 +1,13 @@
 /* VARIABLES : Couleurs principales */
 :root {
-  --primary-color: #007bff;
-  --secondary-color: #6c757d;
+  --primary-color: #0d57a7;
+  --secondary-color: #0d57a7;
   --success-color: #28a745;
   --warning-color: #ffc107;
   --danger-color: #dc3545;
   --light-color: #f9f9f9;
   --background-color: #f4f4f9;
   --white: #ffffff;
-  --black: #333;
   --gray-border: #ddd;
   --hover-opacity: 0.85;
 }

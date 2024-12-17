@@ -1,59 +1,57 @@
-<h1>Modifier le jeu : {{jeu.titre}}</h1>
-<form action="/jeux/{{jeu.id}}/edit" method="POST">
-  <label for="titre">Titre :</label>
-  <input
-    type="text"
-    name="titre"
-    id="titre"
-    value="{{jeu.titre}}"
-    required
-  />
+<h1 class="title">Modifier le jeu : {{jeu.titre}}</h1>
 
-  <label for="description">Description :</label>
-  <textarea name="description" id="description" required>{{jeu.description}}</textarea>
+<form action="/jeux/{{jeu.id}}/edit" method="POST" class="form-container">
+  <!-- Titre -->
+  <div class="form-group">
+    <label for="titre">Titre :</label>
+    <input type="text" name="titre" id="titre" value="{{jeu.titre}}" required />
+  </div>
 
-  <label for="dateSortie">Date de sortie :</label>
-  <input
-    type="date"
-    name="dateSortie"
-    id="dateSortie"
-    value="{{formatDate jeu.dateSortie}}"
-    required
-  />
+  <!-- Description -->
+  <div class="form-group">
+    <label for="description">Description :</label>
+    <textarea name="description" id="description" rows="5" required>{{jeu.description}}</textarea>
+  </div>
 
-  <label for="genreId">Genre :</label>
-  <select name="genreId" id="genreId">
-    {{#each genres}}
-    <option
-      value="{{this.id}}"
-      {{#if (eq this.id ../jeu.genreId)}}selected{{/if}}
-    >
-      {{this.nom}}
-    </option>
-    {{/each}}
-  </select>
+  <!-- Date de sortie -->
+  <div class="form-group">
+    <label for="dateSortie">Date de sortie :</label>
+    <input type="date" name="dateSortie" id="dateSortie" value="{{formatDate jeu.dateSortie}}" required />
+  </div>
 
-  <label for="editeurId">Éditeur :</label>
-  <select name="editeurId" id="editeurId">
-    {{#each editeurs}}
-    <option
-      value="{{this.id}}"
-      {{#if (eq this.id ../jeu.editeurId)}}selected{{/if}}
-    >
-      {{this.nom}}
-    </option>
-    {{/each}}
-  </select>
+  <!-- Genre -->
+  <div class="form-group">
+    <label for="genreId">Genre :</label>
+    <select name="genreId" id="genreId">
+      {{#each genres}}
+        <option value="{{this.id}}" {{#if (eq this.id ../jeu.genreId)}}selected{{/if}}>{{this.nom}}</option>
+      {{/each}}
+    </select>
+  </div>
 
-  <label for="misEnAvant">Mis en avant :</label>
-  <input
-    type="checkbox"
-    name="misEnAvant"
-    id="misEnAvant"
-    {{#if jeu.misEnAvant}}checked{{/if}}
-  />
+  <!-- Éditeur -->
+  <div class="form-group">
+    <label for="editeurId">Éditeur :</label>
+    <select name="editeurId" id="editeurId">
+      {{#each editeurs}}
+        <option value="{{this.id}}" {{#if (eq this.id ../jeu.editeurId)}}selected{{/if}}>{{this.nom}}</option>
+      {{/each}}
+    </select>
+  </div>
 
-  <button type="submit">Enregistrer</button>
+  <!-- Mis en avant -->
+  <div class="form-group checkbox-group">
+    <label for="misEnAvant">Mis en avant :</label>
+    <input type="checkbox" name="misEnAvant" id="misEnAvant" {{#if jeu.misEnAvant}}checked{{/if}} />
+  </div>
+
+  <!-- Bouton Enregistrer -->
+  <div class="form-group">
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+  </div>
 </form>
 
-<a href="/jeux" class="btn">Retourner à la liste de jeux</a>
+<!-- Retour à la liste des jeux -->
+<div class="button-container">
+  <a href="/jeux" class="btn btn-primary">Retourner à la liste des jeux</a>
+</div>
